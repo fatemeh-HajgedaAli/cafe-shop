@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-color:#0c0c0c;
+  --white:#fff;
+  --text-color:#fff;
+  --main-color:#ae8957;
+  --big-font:6.6rem;
+  --p-font:1rem;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+header {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(222, 195, 185, 0.21);
+  width: 100%;
+  height: 8rem;
+  margin: 1rem 0 0 0;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5ms ease;
+}
+header img {
+  width: 50%;
+  height: auto;
+}
+header .navList {
+  display: flex;
+}
+header .navList .navlink {
+  display: inline-block;
+  margin: 0 35px;
+  color: var(--text-color);
+  font-size: var(--p-font);
+}
+header .navList .navlink:hover {
+  color: var(--main-color);
+  transition: all 0.16s ease-in-out;
+}
+header .rightContent {
+  border: 1px solid var(--white);
+  border-radius: 0.5rem;
+  width: 8rem;
+  margin-right: 5rem;
+  text-align: center;
+}
+header .rightContent .singInBtn {
+  display: inline-block;
+  padding: 0.5rem;
+  color: var(--text-color);
+}
+header .rightContent #iconMenu {
+  color: rgb(249, 243, 243);
+}/*# sourceMappingURL=mainCss.css.map */
