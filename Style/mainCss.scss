@@ -48,7 +48,6 @@ margin: 0 10px;
 color: var(--text-color);
 font-size: var(--p-font);
 text-align: center;
-
 }
 .navlink:hover{
 color: var(--main-color);
@@ -93,7 +92,8 @@ gap: 2rem;
 position:relative;
 width: 100%;
 height: 100vh;
-background: url(../Images/88b4b53c863aa5f2e9e9ce8dece1c7e9.jpg);
+background: linear-gradient(to right, rgba(11, 11, 9, 0.5), rgba(150, 99, 79, 0.258)), 
+            url(../Images/88b4b53c863aa5f2e9e9ce8dece1c7e9.jpg);
 background-size: cover;
 background-position: center; 
 padding:0 10%; 
@@ -121,7 +121,7 @@ padding:0 10%;
         }
     }
 #heroImage{
-margin-top: 1rem;
+margin-top: 14.8%;
 width: 50%;
 height: auto;
 }
@@ -175,5 +175,35 @@ span{
     color: var(--main-color);
 }
     }
-    
-
+.scroll{
+    display: flex;
+    position: absolute;
+    top:91%;
+    left:80%;
+    font-size:3rem;
+    margin-top: -1rem;
+    transition: all .6s;
+    .text{
+        margin-top: 0.8rem;
+        font-size: 1rem; 
+        padding-right: 1rem;
+        transition: all .6s;
+    }
+}   
+.scroll:hover{
+    color:var(--main-color);
+    cursor: pointer;
+    transform: rotateX('30%');
+} 
+// responsive
+@media (max-width: 1770px){
+    .header{
+        padding: 22px 4%;
+    }
+    .icons{
+        padding: 0 4%;
+    }
+    .scroll{
+        right: 4%;
+    }
+}
