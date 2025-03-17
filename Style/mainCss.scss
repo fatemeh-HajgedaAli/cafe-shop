@@ -1,23 +1,25 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+list-style: none;
+text-decoration: none;
+font-family: "Poppins", sans-serif;
+overflow: hidden;
 }
 :root{
-    --bg-color:#0c0c0c;
-    --gray:rgb(189, 189, 189);
-    --white:#fff;
-    --text-color:#fff;
-    --main-color:#ae8957;
-    --big-font:4.6rem;
-    --p-font:1rem;
+--bg-color:#0c0c0c;
+--gray:rgb(189, 189, 189);
+--white:#fff;
+--text-color:#fff;
+--main-color:#ae8957;
+--big-font:4.6rem;
+--p-font:1rem;
 }
 body{
-    background:var(--bg-color);
-    color: var(--text-color);
+background:var(--bg-color);
+color: var(--text-color);
+overflow-x: hidden;
 }
 header{
 position: fixed;
@@ -93,37 +95,39 @@ position:relative;
 width: 100%;
 height: 100vh;
 background: linear-gradient(to right, rgba(11, 11, 9, 0.5), rgba(150, 99, 79, 0.258)), 
-            url(../Images/88b4b53c863aa5f2e9e9ce8dece1c7e9.jpg);
+url(../Images/88b4b53c863aa5f2e9e9ce8dece1c7e9.jpg);
 background-size: cover;
 background-position: center; 
 padding:0 10%; 
-
 .heroText{
-        margin-top: 5rem;
-    h1{
-        font-size: var(--big-font);  
-        font-weight: 800;
-        margin:1rem 0;
-    }
-    h5{
-        font-size: 1rem;  
-        font-weight: 400;
-        letter-spacing: 1px;
-        }
-    p{
-        width: 100%;
-        max-width: 620px;
-        font-size: var(--p-font);  
-        font-weight: 400;
-        line-height: 32px;
-        margin-bottom: 3rem;
-        color: var(--text-color);
-        }
-    }
+margin-top: 5rem;
+h1{
+font-size: var(--big-font);  
+font-weight: 800;
+margin:1rem 0;}
+h5{
+font-size: 1rem;  
+font-weight: 400;
+letter-spacing: 1px;}
+p{
+width: 100%;
+max-width: 620px;
+font-size: var(--p-font);  
+font-weight: 400;
+line-height: 32px;
+margin-bottom: 3rem;
+color: var(--text-color);}
+}
 #heroImage{
-margin-top: 14.8%;
-width: 50%;
+display: flex;
+position:relative;
+z-index: 999;
+margin-top: 20.8%;
+overflow: hidden;
+.coffeeImg{
+width: 100%;
 height: auto;
+}
 }
 .mainHero{
 display: flex;
@@ -157,53 +161,81 @@ span{
     padding-left:0.5rem ;}
 }}
 .leftIcon{
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    top:50%;
-    padding: 0 7%;
-    z-index: 10002;
-    transform: translateY(-50%);
-    .iconsLink{
-        display: block;
-        margin: 0.5rem 0 ;
-        font-size: 1.5rem;
-        transition: all .6s;
+display: flex;
+position: absolute;
+flex-direction: column;
+top:50%;
+padding: 0 7%;
+z-index: 10002;
+transform: translateY(-50%);
+.iconsLink{
+display: block;
+margin: 0.5rem 0 ;
+font-size: 1.5rem;
+transition: all .6s;
 }
 .iconsLink:hover{
     transform: translateY(-5px);
     color: var(--main-color);
 }
-    }
+}
 .scroll{
-    display: flex;
-    position: absolute;
-    top:91%;
-    left:80%;
-    font-size:3rem;
-    margin-top: -1rem;
-    transition: all .6s;
-    .text{
-        margin-top: 0.8rem;
-        font-size: 1rem; 
-        padding-right: 1rem;
-        transition: all .6s;
-    }
+display: flex;
+position: absolute;
+top:91%;
+left:80%;
+font-size:3rem;
+margin-top: -1rem;
+transition: all .6s;
+.text{
+margin-top: 0.8rem;
+font-size: 1rem; 
+padding-right: 1rem;
+transition: all .6s;
+}
 }   
 .scroll:hover{
-    color:var(--main-color);
-    cursor: pointer;
-    transform: rotateX('30%');
+color:var(--main-color);
+cursor: pointer;
+transform: rotateX('30%');
 } 
 // responsive
+
 @media (max-width: 1770px){
     .header{
         padding: 22px 4%;
     }
-    .icons{
-        padding: 0 4%;
+    .leftIcon{
+        padding: 0 4% !important;
     }
     .scroll{
-        right: 4%;
+        right: 10% !important;
     }
 }
+@media(max-width: 1670px){
+    :root{
+        --big-font:3.5rem;
+        --p-font:10px;
+    }
+}
+@media(max-width: 1370px){
+.leftIcon{
+display: none;
+}
+.hero{
+padding: 0 4% !important;
+}
+}
+@media (max-width: 1150px) {
+    :root {
+      --big-font: 2.5rem;
+    }
+    
+    .price {
+      font-size: 16px !important; /* این مقدار خیلی کوچیکه! پیشنهاد: حداقل 12px */
+    }
+  
+    .btn {
+      padding: 23px 20px !important;
+    }
+  }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -5,6 +6,7 @@
   list-style: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
 :root {
@@ -20,6 +22,7 @@
 body {
   background: var(--bg-color);
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
 header {
@@ -128,8 +131,14 @@ header .rightContent .iconMenu #iconMenu {
   color: var(--text-color);
 }
 .hero #heroImage {
-  margin-top: 14.8%;
-  width: 50%;
+  display: flex;
+  position: relative;
+  z-index: 999;
+  margin-top: 20.8%;
+  overflow: hidden;
+}
+.hero #heroImage .coffeeImg {
+  width: 100%;
   height: auto;
 }
 .hero .mainHero {
@@ -212,10 +221,35 @@ header .rightContent .iconMenu #iconMenu {
   .header {
     padding: 22px 4%;
   }
-  .icons {
-    padding: 0 4%;
+  .leftIcon {
+    padding: 0 4% !important;
   }
   .scroll {
-    right: 4%;
+    right: 10% !important;
+  }
+}
+@media (max-width: 1670px) {
+  :root {
+    --big-font:3.5rem;
+    --p-font:10px;
+  }
+}
+@media (max-width: 1370px) {
+  .leftIcon {
+    display: none;
+  }
+  .hero {
+    padding: 0 4% !important;
+  }
+}
+@media (max-width: 1150px) {
+  :root {
+    --big-font: 2.5rem;
+  }
+  .price {
+    font-size: 16px !important; /* این مقدار خیلی کوچیکه! پیشنهاد: حداقل 12px */
+  }
+  .btn {
+    padding: 23px 20px !important;
   }
 }/*# sourceMappingURL=mainCss.css.map */
