@@ -6,7 +6,6 @@
   list-style: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
 }
 
 :root {
@@ -22,6 +21,11 @@
 body {
   background: var(--bg-color);
   color: var(--text-color);
+}
+
+ul, a, li, ol {
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 header {
@@ -44,31 +48,54 @@ header img {
   height: auto;
   margin-top: -1rem;
 }
-header .navList {
+header .navBar {
   display: flex;
-  margin-left: -25rem;
   z-index: 1001;
+  margin-left: 36%;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: row; */
+  position: fixed;
 }
-header .navList .navlink {
+header .navBar .navlink {
   display: inline-block;
   margin: 0 10px;
-  color: var(--text-color);
-  font-size: var(--p-font);
   text-align: center;
+  color: var(--text-color);
 }
-header .navList .navlink:hover {
+header .navBar .navlink:hover {
   color: var(--main-color);
   transition: all 0.16s ease-in-out;
 }
+header .navListOpen {
+  display: none;
+  flex-direction: column;
+  position: fixed; /* تغییر از absolute به fixed */
+  width: 100vw; /* کل عرض صفحه */
+  height: 100vh; /* کل ارتفاع صفحه */
+  top: 0;
+  left: 0; /* از ابتدا شروع بشه */
+  right: 0;
+  bottom: 0;
+  background-color: rgba(199, 150, 130, 0.189); /* پس‌زمینه تیره‌تر برای خوانایی */
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 1006; /* قرارگیری روی بقیه محتوا */
+  justify-content: center;
+  align-items: center;
+  transition: all 140ms ease;
+  font-size: 2rem !important; /* اندازه فونت را مشخص کن */
+  font-weight: 600;
+}
+header .navListOpen .navlinkOpen:hover {
+  color: var(--main-color);
+}
 header .rightContent {
   display: flex;
+  position: absolute;
+  right: 10%;
 }
-header .rightContent .signIn {
-  display: flex;
-  margin-right: 5rem;
-  justify-content: center;
-}
-header .rightContent .signIn .singInBtn {
+header .rightContent .singInBtn {
   display: inline-block;
   padding: 0.6rem;
   color: var(--text-color);
@@ -77,27 +104,29 @@ header .rightContent .signIn .singInBtn {
   border-radius: 0.5rem;
   width: 8rem;
 }
-header .rightContent .signIn .singInBtn:hover {
+header .rightContent .singInBtn:hover {
   transform: translateY(-5px);
   border: 2px solid var(--main-color);
   border-radius: 0.5rem;
   width: 8rem;
   color: var(--main-color);
 }
-header .rightContent .iconMenu {
-  display: none;
+header .iconMenu {
+  display: flex;
+  margin-left: 45%;
 }
-header .rightContent .iconMenu #openMenu {
+header .iconMenu #openMenu {
   color: rgb(249, 243, 243);
-  margin-right: 1rem;
   font-size: 3rem;
-  z-index: 10001;
   cursor: pointer;
 }
-header .rightContent .iconMenu #closeMenu {
-  margin-right: 5rem;
-  font-size: 3rem;
-  z-index: 10001;
+header #closeMenu {
+  font-size: 4rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+header #closeMenu #closeMenu:hover {
+  color: var(--main-color);
   cursor: pointer;
 }
 
@@ -115,7 +144,7 @@ header .rightContent .iconMenu #closeMenu {
   padding: 0 10%;
 }
 .hero .heroText {
-  margin-top: 5rem;
+  margin-top: -2rem;
 }
 .hero .heroText h1 {
   font-size: var(--big-font);
@@ -137,13 +166,13 @@ header .rightContent .iconMenu #closeMenu {
   color: var(--text-color);
 }
 .hero #heroImage {
-  display: flex;
-  position: relative;
-  margin-top: 20.8%;
+  position: fixed;
+  margin-top: 0.8%;
   overflow: hidden;
+  right: 15%;
 }
 .hero #heroImage .coffeeImg {
-  width: 100%;
+  width: 30rem;
   height: auto;
 }
 .hero .mainHero {
@@ -158,13 +187,13 @@ header .rightContent .iconMenu #closeMenu {
   border-radius: 7px;
   font-size: 1rem;
   font-weight: 500;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease;
   margin-right: 1rem;
   color: var(--text-color);
-  box-shadow: 1px 1px 7px 0.11px var(--gray);
 }
 .hero .mainHero .btn:hover {
   transform: scale(1.1);
+  border-radius: 8px;
 }
 .hero .price {
   display: flex;
@@ -256,84 +285,39 @@ header .rightContent .iconMenu #closeMenu {
   .btn {
     padding: 23px 20px !important;
   }
-  #openMenu {
-    display: inline-block !important;
-  }
-  #closeMenu {
-    display: none;
-  }
 }
 @media (max-width: 950px) {
-  .iconMenu {
-    display: flex !important;
-  }
   .scroll {
     right: 5% !important;
   }
-  .navList {
-    display: block !important;
-    flex-direction: column;
-    position: fixed; /* تغییر از absolute به fixed */
-    width: 100vw; /* کل عرض صفحه */
-    height: 100vh; /* کل ارتفاع صفحه */
-    top: 0;
-    left: 100%; /* از ابتدا شروع بشه */
-    right: 0;
-    bottom: 0;
-    background-color: rgba(199, 150, 130, 0.189); /* پس‌زمینه تیره‌تر برای خوانایی */
-    -webkit-backdrop-filter: blur(32px);
-            backdrop-filter: blur(32px);
-    z-index: 10000; /* قرارگیری روی بقیه محتوا */
-    justify-content: center;
-    align-items: center;
-    transition: all 0.6s ease-in-out;
-    font-size: var(--big-font);
-  }
-  .navlink {
-    display: block;
-    margin: 10px 0;
-    color: white;
-    text-align: center;
-  }
-  #openMenu {
-    display: none !important;
-  }
-  #closeMenu {
-    display: block !important;
-  }
 }
 @media (max-width: 920px) {
-  .scroll {
-    display: none;
+  .navBar, .navListOpen, .scroll {
+    display: none !important;
+  }
+  .iconMenuX {
+    display: inline-block;
+    z-index: 1005;
+    position: absolute;
   }
   .hero {
-    grid-template-columns: 1fr;
-    height: auto;
+    grid-template-columns: 1fr !important;
+  }
+  .coffeeImg {
+    width: 300px !important;
+    height: auto !important;
+    margin-top: 32rem !important;
+  }
+  .logoIcon {
+    width: 200px !important;
+    height: auto !important;
   }
   .heroText {
-    padding-top: 130px;
-  }
-  .heroImage {
-    height: 500px;
-    width: 500px;
-    margin: 0 auto;
-  }
-  .heroImage img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
+    padding-top: 13px;
+    margin-bottom: 30px;
   }
 }
-@media (max-width: 570px) {
-  .hero {
-    height: 100vh;
-  }
-  .heroImage {
-    height: 400px;
-    width: 400px;
-    margin: 0 auto;
-  }
+@media (max-wi0dth: 570px) {
   :root {
     --big-font:3.4rem;
   }
@@ -348,17 +332,16 @@ header .rightContent .iconMenu #closeMenu {
   .heroText h1 {
     font-size: 1.2rem;
   }
-  .heroImage img {
-    height: 200px !important;
-    width: 250px !important;
-    margin: 100% auto;
-    -o-object-fit: contain;
-       object-fit: contain; /* تصویر کشیده نشود */
+  .heroText p {
+    display: none !important;
   }
   .signIn {
     font-size: 1rem;
     color: var(--text-color);
     width: 8rem;
     margin-left: 1rem;
+  }
+  .navListOpen {
+    display: flex;
   }
 }/*# sourceMappingURL=mainCss.css.map */
